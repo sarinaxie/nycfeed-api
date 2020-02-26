@@ -9,11 +9,22 @@ const typeDefs = `
   content: String!
  }
 
+ type Article {
+  _id: ID!
+  title: String!,
+  date: Date,
+  content: String!,
+  site: String!
+ }
+
  scalar Date
 
  type Query {
   getNote(_id: ID!): Note
   allNotes: [Note]
+  
+  allArticles: [Article]
+  getSiteArticles(site: String!): [Article]
  }
 
  input NoteInput {

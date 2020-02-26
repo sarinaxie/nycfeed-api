@@ -1,4 +1,5 @@
 import Note from "./models/note";
+import Article from "./models/article";
 export const resolvers = {
   Query: {
     async getNote(root, { _id }) {
@@ -6,6 +7,12 @@ export const resolvers = {
     },
     async allNotes() {
       return await Note.find();
+    },
+    async getSiteArticles(root, { site }) {
+      return await Article.find({site: site})
+    },
+    async allArticles() {
+      return await Article.find();
     }
   },
   Mutation: {

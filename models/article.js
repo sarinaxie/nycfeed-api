@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
-const NoteSchema = new Schema({
+const ArticleSchema = new Schema({
   title: {
     type: String,
     required: true
@@ -13,8 +13,12 @@ const NoteSchema = new Schema({
   date: {
     type: Date,
     default: Date.now
+  },
+  site: {
+    type: String,
+    required: true,
+    index: true
   }
 });
-const Note = mongoose.model("note", NoteSchema);
-
-export default Note
+const Article = mongoose.model("article", ArticleSchema);
+export default Article
